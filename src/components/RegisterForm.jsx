@@ -4,7 +4,6 @@ import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import '../App.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import app from '../firebase';
 
 const RegisterForm = () => {
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
@@ -25,7 +24,6 @@ const RegisterForm = () => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
         setIsSubmitted(true);
         resetForm();
       })

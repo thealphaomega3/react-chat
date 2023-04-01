@@ -3,7 +3,7 @@ import { basicSchema } from '../schemas';
 import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
-import app from '../firebase';
+import '../App.css';
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const LoginForm = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
+
         setIsSubmitted(true);
         resetForm();
         navigate('/home');
